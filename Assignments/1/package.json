@@ -1,7 +1,7 @@
 {
-  "name": "test",
+  "name": "Assignment 1",
   "version": "1.0.0",
-  "description": "Test project",
+  "description": "This is the assignment 1",
   "main": "index.js",
   "scripts": {
     "start": "node index.js && mocha tests.js"

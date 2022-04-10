@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/VincentNOURY/Advanced-web-programming/issues"
   },
-  "homepage": "https://github.com/VincentNOURY/Advanced-web-programming#readme"
+  "homepage": "https://github.com/VincentNOURY/Advanced-web-programming#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }

@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/VincentNOURY/Advanced-web-programming/tree/main#readme",
   "dependencies": {
-    "body-parser": "^1.20.0",
     "express": "^4.17.3",
     "knex": "^2.0.0",
     "nodemon": "^2.0.15",

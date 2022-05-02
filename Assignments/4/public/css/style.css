@@ -1,0 +1,33 @@
+/* Page : Homework4 */
+
+*{box-sizing: border-box;}
+
+
+section{
+	font-family: 'Montserrat', sans-serif;
+	color: rgb(15, 15, 15);
+}
+
+button{
+    text-transform: uppercase;
+    box-shadow:4px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 5px;
+}
+
+button:hover {
+    background-color: rgb(61, 115, 131);
+	color: white;
+}
+
+section .boxhomework4{
+	max-width: 350px;
+	width: 100%;
+	margin: 50px;
+	border: 20px solid #fff;
+	box-shadow: 15px 15px 25px rgba(0,0,0, 0.4);
+	border-radius: 8px;
+	background-color:white;
+	margin-left: auto;
+	margin-right: auto;
+}
+

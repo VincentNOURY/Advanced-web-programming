@@ -1,56 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test HTML file</title>
-</head>
-<body>
-    <script src= "/js/test.js"></script>
-    <h1>This is a random HTML file</h1>
-    <p>Urls : </p>
-    <ul>
-        <li><a href="/images/pandoras_box.jpeg">Pandora box image</a></li>
-        <li><a href="/js/test.js">test.js</a></li>
-        <li><a href="/">Home page (this one)</a></li>
-        <li><a href="/api/1">API (usage api/id)</a></li>
-    </ul>
-
-    <h1>Form</h1>
-    <form id="form">
-        <input type="text" name="id" id="id" value="1">
-        <button type="submit">Submit</button>
-    </form>
-
-    <p id='to-insert'></p>
-
-    <script>
-        const form = document.getElementById('form')
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Homework4</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
 
 
-            var data = document.getElementById('id').value;
+<!--
+Homework : Vincent NOURY, Clément GRAS
+-->
 
-            fetch('/api/' + data).then(response => response.json()).then(data2 => {
-                document.getElementById('to-insert').innerHTML = "The corresponding letter is : " + data2['id'];
-            })
-        })
-
-    </script>
-
-    <img src="/images/pandoras_box.jpeg" alt="Pandoras box image">
-
-    <p>This doesn't do anything</p>
-    <p>This text is kinda useless</p>
-    <p>You might be wasting your time reading this</p>
-    <p>But this is nice that you are doing it</p>
-    <p>Maybe I should stop using paragraphs every time</p>
-    <p>Ok this is the last line</p>
-    <p>Or is it ?</p>
-    <p>Ok I promise this one is the last</p>
-    <p style="display: none">I lied</p>
-</body>
-</html>
+	<body>
+		<section>
+				<div class="boxhomework4">
+					<p>Insert : </p>
+					<form action="/api/creation" method="POST">
+						<p>Name</p>
+						<input type="text" autocomplete="off" name="name" required>
+						<p>Email</p>
+						<input type="text" autocomplete="off" name="email" required>
+						<p>premium_id</p>
+						<input type="text" autocomplete="off" name="premium_id" required><br>
+						<button type="submit" class="btn" id="valid1">Submit</button><br><br>
+					</form>
+					<p>Select : </p>
+					<form action="/api/retrieval" method="POST">
+						<p>Name</p>
+						<input type="text" autocomplete="off" name="name" required><br>
+						<button type="submit" class="btn" id="valid2">Submit</button><br><br>
+					</form>	
+					<p>Update : </p>
+					<form action="/api/updating" method="POST">
+						<p>Id</p>
+						<input type="text" autocomplete="off" name="id" required>
+						<p>Changes</p>
+						<input type="text" autocomplete="off" name="changes" required><br>
+						<button type="submit" class="btn" id="valid3">Submit</button><br><br>
+					</form>	
+					<p>Delete :</p>
+					<form action="/api/deleting" method="POST">
+						<p>Id</p>
+						<input type="text" autocomplete="off" name="id" required><br>
+						<button type="submit" class="btn" id="valid4">Submit</button><br><br>
+					</form>	
+				</div>
+		</section>
+	</body>

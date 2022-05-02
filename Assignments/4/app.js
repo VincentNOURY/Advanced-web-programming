@@ -27,7 +27,8 @@ app.post('/api/creation', (req, res) => {
           knex('users')
           .where('id', item[0]['id'])
           .then(element => {
-          return res.json(element)
+            console.log(element)
+            return res.json(element[0])
           })
         })
   }
@@ -47,40 +48,39 @@ app.post('/api/retrieval', (req, res) => {
   
 })
 
-app.post('/api/updating', (res,req) => {
+app.post('/api/updating', (req,res) => {
   if (req.body.id && req.body.changes){
+    let changes = JSON.parse(req.body.changes)
     let request = {}
-    if (req.body.changes.name){
-      request['name'] = req.body.changes.name
+    if (changes.name){
+      request['name'] = changes.name
     }
 
-    if (req.body.changes.email){
-      request['email'] = req.body.changes.email
+    if (changes.email){
+      request['email'] = changes.email
     }
 
-    if (req.body.changes.premium_id){
-      request['premium_id'] = req.body.changes.premium_id
+    if (changes.premium_id){
+      request['premium_id'] = changes.premium_id
     }
+
     knex('users').where('id', req.body.id).update(request)
-    .then(elem => console.log(elem))
-  }
+    .then(elem => {
+      if (elem == 1){
+        res.json({success: true})
+    }
+  })}
   else{
-    req.send(401, "Missing id or changes parameter in body please use application/x-www-form-urlencoded format")
+    res.send(401, "Missing id or changes parameter in body please use application/x-www-form-urlencoded format\n changes format : {'keyname' : 'value'}")
   }
 })
 
-
+app.post('/api/deleting', (req, res) => {
+  if (req.body.id){
+    knex('users').where('id', req.body.id).del().then(elem => {if (elem == 1){res.json({success: true})}})
+  }
+})
 
 app.listen(port, () => {
   console.log(`Copygright : Vincent NOURY, Clément GRAS\nExample app listening on port ${port}`)
 })
-
-function some_function(req, res) {
-  var letters = "abcdefghijklmnopqrstuvwxyz"
-  if (req.params.id < 26){
-    res.json({id: letters[req.params.id]})
-  }
-  else{
-    res.json({id: "Your number is too high"})    
-  }
-}
